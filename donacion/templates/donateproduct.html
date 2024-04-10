@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %} {% load static %} {% block content %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+  <div
+    class="page-header d-flex align-items-center"
+    style="background-image: url('{% static 'img/page-header.jpg' %}')"
+  >
+    <div class="container position-relative">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>Donacion de productos</h2>
+          <p>
+            Ofrece la posibilidad de apoyar esta iniciativa a las organizaciones
+            donantes y personas naturales, donando productos específicos
+            perecederos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div class="container">
+      <ol>
+        <li><a href="/">Dashboard</a></li>
+        <li>Donar Productos</li>
+      </ol>
+    </div>
+  </nav>
+</div>
+<!-- End Breadcrumbs -->
+<section class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-4 mt-1">
+      <form action="/product/donar/" method="post" class="card card-body">
+        {% csrf_token %} {{form.as_p}}
+        <button class="btn btn-secondary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

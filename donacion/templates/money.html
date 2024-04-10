@@ -1,0 +1,90 @@
+{% extends "layouts/base.html" %} {% load static %} {% block content %}
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div
+      class="page-header d-flex align-items-center"
+      style="background-image: url('{% static 'img/page-header.jpg' %}')"
+    >
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Donaciones Economicas</h2>
+            <p>
+              Odio et unde deleniti. Deserunt numquam exercitationem. Officiis
+              quo odio sint voluptas consequatur ut a odio voluptatem. Sit
+              dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit
+              quaerat ipsum dolorem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="/">Dashboard</a></li>
+          <li>Donar</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  <!-- End Breadcrumbs -->
+
+  <section id="pricing" class="pricing">
+    <div class="container text-center" data-aos="fade-up">
+      <div class="section-header">
+        <span>Donar dinero</span>
+        <h2>Donar dinero</h2>
+      </div>
+      <div class="row gy-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="pricing-item">
+            <h3>Organizacion beneficiaria</h3>
+            <h4>0<span> Beneficiados</span></h4>
+            <ul>
+              <li><i class="bi bi-check"></i> Direccion</li>
+              <li><i class="bi bi-check"></i> Fecha:</li>
+              <li><i class="bi bi-check"></i> Descripcion:</li>
+            </ul>
+            <a href="#" class="buy-btn">Donar</a>
+          </div>
+        </div>
+        <!-- End money Item -->
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-item featured">
+            <h3>Organizacion beneficiaria</h3>
+            <h4>29<span> Beneficiados</span></h4>
+            <ul>
+              <li><i class="bi bi-check"></i> Direccion</li>
+              <li><i class="bi bi-check"></i> Fecha:</li>
+              <li><i class="bi bi-check"></i> Descripcion:</li>
+            </ul>
+            <a href="#" class="buy-btn">Donar</a>
+          </div>
+        </div>
+        <!-- End money Item -->
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="pricing-item">
+            <h3>Organizacion beneficiaria</h3>
+            <h4>49<span> Beneficiados</span></h4>
+            <ul>
+              <li><i class="bi bi-check"></i> Direccion</li>
+              <li><i class="bi bi-check"></i> Fecha:</li>
+              <li><i class="bi bi-check"></i> Descripcion:</li>
+            </ul>
+            <a href="#" class="buy-btn">Donar</a>
+          </div>
+        </div>
+        <!-- End money Item -->
+      </div>
+    </div>
+  </section>
+  <!-- End money Section -->
+</main>
+<!-- End #main -->
+
+{% endblock %}

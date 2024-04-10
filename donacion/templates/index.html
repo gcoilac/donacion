@@ -1,0 +1,183 @@
+{% extends "layouts/base.html" %} {% load static %} {% block content %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container">
+    <div class="row gy-4 d-flex justify-content-between">
+      <div
+        class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
+      >
+        <h2 data-aos="fade-up">
+          Recogida - entrega <br />
+          Donaciones
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="100">
+          El sistema de donación propuesto tiene como objetivo rastrear las
+          donaciones de productos, coordinar la recogida y entrega de las mismas
+          a organizaciones beneficiarias. Además, permite a las organizaciones
+          beneficiarias solicitar los alimentos que necesiten.
+        </p>
+        {% if user.is_authenticated %}
+        <form
+          action="#"
+          class="form-search d-flex align-items-stretch mb-3"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Indique lo q esta buscando "
+          />
+          <button type="submit" class="btn btn-primary border-0">
+            Buscador
+          </button>
+        </form>
+        {% else %}
+        <div class="p-5">
+          <div
+            class="d-grid gap-2 d-md-flex justify-content-md-end"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <a class="account btn btn-lg" href="/signup" type="button"
+              >Inscribirme <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-3 col-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="232"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Voluntarios</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="521"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Entregas</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="1453"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Donaciones</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="32"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Donadores</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+        </div>
+      </div>
+
+      <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+        <img
+          src="{% static 'img/hero-img.svg' %}"
+          class="img-fluid mb-3 mb-lg-0"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Hero Section -->
+
+<!-- ======= Featured Services Section ======= -->
+<section id="featured-services" class="featured-services">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
+        <div class="icon flex-shrink-0">
+          <i class="fa-solid fa-cart-flatbed"></i>
+        </div>
+        <div>
+          <h4 class="title">Recogemos</h4>
+          <p class="description">
+            Recogemos voluptatum deleniti atque corrupti quos dolores et quas
+            molestias excepturi sint occaecati cupiditate non provident
+          </p>
+          <a href="/collect" class="readmore stretched-link"
+            ><span>Leer mas</span><i class="bi bi-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- End Service Item -->
+
+      <div
+        class="col-lg-4 col-md-6 service-item d-flex"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="icon flex-shrink-0">
+          <i class="fa-solid fa-truck"></i>
+        </div>
+        <div>
+          <h4 class="title">Trasladamos</h4>
+          <p class="description">
+            Trasladamos minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat tarad limino ata
+          </p>
+          <a href="#" class="readmore stretched-link"
+            ><span>Leer mas</span><i class="bi bi-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- End Service Item -->
+
+      <div
+        class="col-lg-4 col-md-6 service-item d-flex"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="icon flex-shrink-0">
+          <i class="fa-solid fa-truck-ramp-box"></i>
+        </div>
+        <div>
+          <h4 class="title">Entregamos</h4>
+          <p class="description">
+            Entregamos duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur
+          </p>
+          <a href="/delivery" class="readmore stretched-link"
+            ><span>Leer mas</span><i class="bi bi-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- End Service Item -->
+    </div>
+  </div>
+</section>
+<!-- End Featured Services Section -->
+{% endblock content %}

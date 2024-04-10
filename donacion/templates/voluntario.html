@@ -1,0 +1,127 @@
+{% extends "layouts/base.html" %} {% load static %} {% block content %}
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div
+      class="page-header d-flex align-items-center"
+      style="background-image: url('{% static 'img/page-header.jpg' %}')"
+    >
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Nuestro trabajo</h2>
+            <p>
+              La industria de donaciones de alimentos es crucial para apoyar a
+              comunidades vulnerables y reducir el desperdicio de alimentos.
+              Existe una creciente conciencia sobre la importancia de la
+              distribución eficiente de alimentos donados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="/">Dashboard</a></li>
+          <li>Nuestro trabajo</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  <!-- End Breadcrumbs -->
+
+  <!-- voluntarios Services Section -->
+  <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <span>Seleccionar voluntario</span>
+        <h2>Seleccionar voluntario</h2>
+      </div>
+
+      <div
+        class="row gy-4 pricing-item"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3>VOLUNTARIO</h3>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h4>0<span> \ Beneficiados</span></h4>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <ul>
+            <h5>Organizacion beneficiaria o persona natural</h5>
+            <li><i class="bi bi-check"></i>direccion</li>
+            <li><i class="bi bi-check"></i> fecha de publicacion</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <div class="text-center">
+            <a href="delivery.html" class="buy-btn">Hacer donacion</a>
+          </div>
+        </div>
+      </div>
+      <!-- End Pricing Item -->
+
+      <div
+        class="row gy-4 pricing-item featured mt-4"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3>VOLUNTARIO</h3>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h4>0<span> \ Beneficiados</span></h4>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <ul>
+            <h5>Organizacion beneficiaria o persona natural</h5>
+            <li><i class="bi bi-check"></i> direccion</li>
+            <li>
+              <i class="bi bi-check"></i>
+              <strong>fecha de publicacion</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <div class="text-center">
+            <a href="delivery.html" class="buy-btn">Hacer donancion</a>
+          </div>
+        </div>
+      </div>
+      <!-- End Pricing Item -->
+
+      <div
+        class="row gy-4 pricing-item mt-4"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="col-lg-9 d-flex align-items-center justify-content-between">
+            <div>
+                <h3>VOLUNTARIO</h3>
+            <ul>
+              <h5>Organizacion beneficiaria o persona natural</h5>
+              <li><i class="bi bi-check"></i> direccion</li>
+              <li>
+                <i class="bi bi-check"></i>
+                <strong>fecha de publicacion</strong>
+              </li>
+            </ul>
+            </div>
+            <h4>0<span> \ Beneficiados</span></h4>
+        </div>
+        
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <div class="text-center">
+            <a href="delivery.html" class="buy-btn">Hacer donacion</a>
+          </div>
+        </div>
+      </div>
+  <!-- End voluntarios Services Section -->
+</main>
+<!-- End #main -->
+
+{% endblock %}
