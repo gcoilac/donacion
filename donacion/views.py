@@ -121,6 +121,7 @@ def Donar_producto(request):
         try:
             form = ProductForm(request.POST)
             if form.is_valid:
+                print(form)
                 #newform = form.save(commit=False)
                 form.save()
                 return redirect('productos')
