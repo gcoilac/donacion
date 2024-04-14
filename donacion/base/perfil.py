@@ -14,6 +14,6 @@ class Perfil(BaseModel):
 
     class Meta:
         abstract = True
-        
+
     # def __str__(self) -> str:
     #     return self.nombre + " " + self.paterno + " " + self.materno

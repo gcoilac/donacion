@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
+
 from donacion.base.perfil import Perfil
 from donacion.base.types import TipoFuncion
 

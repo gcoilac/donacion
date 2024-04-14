@@ -1,8 +1,14 @@
 from django.contrib import admin
 
-from donacion.models.organizacion import Organizacion
-from donacion.models.persona_natural import PersonaNatural
-from donacion.models.voluntario import Voluntario
+from donacion.models import (
+    Organizacion,
+    PersonaNatural,
+    Voluntario,
+    Transaccion,
+    TransaccionItems,
+    Producto,
+)
+
 
 # from .models import (
 #     Alimento, Donante, Producto, Donacion,  OrgBeneficiaria,
@@ -14,20 +20,16 @@ from donacion.models.voluntario import Voluntario
 
 # Registra todos los modelos en el admin
 
+
 @admin.register(Voluntario)
 class VoluntarioAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(PersonaNatural)
 class PersonaNaturalAdmin(admin.ModelAdmin):
-    list_display = (
-        "user",
-        "nombre",
-        "paterno",
-        "materno",
-        "telefono",
-        "tipo_funcion"
-    )
+    list_display = ("user", "nombre", "paterno", "materno", "telefono", "tipo_funcion")
+
 
 @admin.register(Organizacion)
 class OrganizacionAdmin(admin.ModelAdmin):
@@ -38,9 +40,11 @@ class OrganizacionAdmin(admin.ModelAdmin):
         "tipo_funcion",
     )
 
-# admin.site.register(Alimento)
-# admin.site.register(Donacion)
-# admin.site.register(Donante)
+
+admin.site.register(Transaccion)
+admin.site.register(TransaccionItems)
+admin.site.register(Producto)
+
 # admin.site.register(OrgBeneficiaria)
 # admin.site.register(Producto)
 
