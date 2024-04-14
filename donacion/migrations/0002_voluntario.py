@@ -7,15 +7,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    initial = True
-
     dependencies = [
+        ("donacion", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name="PersonaNatural",
+            name="Voluntario",
             fields=[
                 (
                     "id",
@@ -33,9 +32,10 @@ class Migration(migrations.Migration):
                 ("materno", models.CharField(blank=True, max_length=255, null=True)),
                 ("telefono", models.CharField(blank=True, max_length=255, null=True)),
                 (
-                    "tipo_funcion",
+                    "tipo_voluntario",
                     models.CharField(
-                        choices=[("D", "Donante"), ("R", "Receptor")], max_length=2
+                        choices=[("R", "Responsable"), ("C", "Colaborador")],
+                        max_length=2,
                     ),
                 ),
                 (
@@ -43,42 +43,6 @@ class Migration(migrations.Migration):
                     models.OneToOneField(
                         on_delete=django.db.models.deletion.PROTECT,
                         to=settings.AUTH_USER_MODEL,
-                    ),
-                ),
-            ],
-            options={
-                "abstract": False,
-            },
-        ),
-        migrations.CreateModel(
-            name="Organizacion",
-            fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                ("created_at", models.DateTimeField(auto_now_add=True, db_index=True)),
-                ("updated_at", models.DateTimeField(auto_now=True)),
-                ("razon_social", models.CharField(max_length=255)),
-                ("telefono", models.CharField(max_length=255)),
-                (
-                    "tipo_funcion",
-                    models.CharField(
-                        choices=[("D", "Donante"), ("R", "Receptor")], max_length=2
-                    ),
-                ),
-                (
-                    "responsable",
-                    models.ForeignKey(
-                        blank=True,
-                        null=True,
-                        on_delete=django.db.models.deletion.SET_NULL,
-                        to="donacion.personanatural",
                     ),
                 ),
             ],

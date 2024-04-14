@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from donacion import views
@@ -22,33 +23,33 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index),
-    path('', views.index, name='index'),
-    path('about/', views.about, name='about'),
-    #path('voluntario/', views.voluntario, name='voluntario'),
-    path('collect/', views.collect, name='collect'),
-    path('contact/', views.contact, name='contact'),
-    path('delivery/', views.delivery, name='delivery'),
-    path('donation/', views.donacion, name='donation'),
-    path('food/', views.food, name='food'),
-    path('money/', views.money, name='money'),
-    path('product/', views.productos, name='product'),
-    path('productos_donados/', views.productos_donados, name='productos_donados'),
-    path('product/donar/', views.Donar_producto, name='donar_producto'),
-    path('donationdetails/', views.donationdetails, name='donationdetails'),
-    path('product/<int:product_id>/', views.detalle_Producto, name='detalle_Producto'),
-    path('product/<int:product_id>/complete', views.entrega_producto, name='entrega_producto'),
-    path('product/<int:product_id>/delete', views.borrar_producto, name='borrar_producto'),
-    path('question/', views.question, name='question'),
-    path('sampleinnerpage/', views.sampleinnerpage, name='sampleinnerpage'),
-    path('services/', views.services, name='services'),
-    path('edit/', views.edit, name='edit'),
-    path('signin/', views.signin, name='signin'),
-    path('password/', views.password, name='password'),
-    path('emailsentconfirm/', views.emailsentconfirm, name='emailsentconfirm'),
-    path('signup/', views.signup, name='signup'),
-    path('signout/', views.signout, name='signout')
+    path("admin/", admin.site.urls),
+    # path('', views.index),
+    # path('', views.index, name='index'),
+    # path('about/', views.about, name='about'),
+    # #path('voluntario/', views.voluntario, name='voluntario'),
+    # path('collect/', views.collect, name='collect'),
+    # path('contact/', views.contact, name='contact'),
+    # path('delivery/', views.delivery, name='delivery'),
+    # path('donation/', views.donacion, name='donation'),
+    # path('food/', views.food, name='food'),
+    # path('money/', views.money, name='money'),
+    # path('product/', views.productos, name='product'),
+    # path('productos_donados/', views.productos_donados, name='productos_donados'),
+    # path('product/donar/', views.Donar_producto, name='donar_producto'),
+    # path('donationdetails/', views.donationdetails, name='donationdetails'),
+    # path('product/<int:product_id>/', views.detalle_Producto, name='detalle_Producto'),
+    # path('product/<int:product_id>/complete', views.entrega_producto, name='entrega_producto'),
+    # path('product/<int:product_id>/delete', views.borrar_producto, name='borrar_producto'),
+    # path('question/', views.question, name='question'),
+    # path('sampleinnerpage/', views.sampleinnerpage, name='sampleinnerpage'),
+    # path('services/', views.services, name='services'),
+    # path('edit/', views.edit, name='edit'),
+    # path('signin/', views.signin, name='signin'),
+    # path('password/', views.password, name='password'),
+    # path('emailsentconfirm/', views.emailsentconfirm, name='emailsentconfirm'),
+    # path('signup/', views.signup, name='signup'),
+    # path('signout/', views.signout, name='signout')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
