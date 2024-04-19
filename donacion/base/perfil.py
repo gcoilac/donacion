@@ -14,8 +14,8 @@ class Perfil(BaseModel):
     status = models.IntegerField(**NULLABLE, choices=tipoUser)
     user = models.OneToOneField(User, on_delete=models.PROTECT)
 
-    def __unicode__(self):
-        return u'%s - %s ' %(self.nombre, self.paterno, self.materno, self.telefono, self.status, )
+    class Meta:
+        abstract = True
 
     # def __str__(self) -> str:
     #     return self.nombre + " " + self.paterno + " " + self.materno

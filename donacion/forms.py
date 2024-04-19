@@ -2,12 +2,12 @@ from django import forms
 #from .models import producto
 from .base import perfil
 
-class PerfilForm(forms.ModelForm):
+# class PerfilForm(forms.ModelForm):
     
-    class Meta:
-        abstract = True
-        model = perfil
-        fields = ["nombre", "paterno", "materno", "telefono", "status"]
+#     class Meta:
+#         abstract = True
+#         model = perfil
+#         fields = ["nombre", "paterno", "materno", "telefono", "status"]
         # widgets = {
         #     "nombre":forms.TextInput(
         #         attrs={
