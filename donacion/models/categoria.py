@@ -1,6 +1,6 @@
 from django.db import models
 
-from donacion.base import DEFAULT_CHAR
+from donacion.base.attrib import DEFAULT_CHAR
 from donacion.base.base_model import BaseModel
 
 

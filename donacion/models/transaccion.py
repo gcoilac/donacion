@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
-from donacion.base import NULLABLE
+from donacion.base.attrib import NULLABLE
 from donacion.base.base_model import BaseModel
 from donacion.models.organizacion import Organizacion
 from donacion.models.persona_natural import PersonaNatural

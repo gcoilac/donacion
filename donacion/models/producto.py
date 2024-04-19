@@ -1,5 +1,5 @@
 from django.db import models
-from donacion.base import DEFAULT_CHAR, NULLABLE
+from donacion.base.attrib import DEFAULT_CHAR, NULLABLE
 from donacion.base.base_model import BaseModel
 from donacion.models.categoria import Categoria
 

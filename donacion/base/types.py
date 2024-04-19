@@ -9,3 +9,9 @@ class TipoVoluntario(models.TextChoices):
 class TipoFuncion(models.TextChoices):
     DONANTE = "D", "Donante"
     RECEPTOR = "R", "Receptor"
+
+
+class tipoUser(models.TextChoices):
+    VOLUNTARIO = "V", "Voluntario"
+    DONANTE = "D", "Donante"
+    RECEPTOR = "R", "Receptor"

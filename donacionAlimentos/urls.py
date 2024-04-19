@@ -24,8 +24,18 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path('', views.index),
-    # path('', views.index, name='index'),
+    path('', views.index, name='index'),
+
+
+    path('signup/', views.signup, name='signup'),
+    path('signout/', views.signout, name='signout'),
+    path('perfil/', views.perfil, name='perfil'),
+    path('edit/', views.edit, name='edit'),
+    path('signin/', views.signin, name='signin'),
+    path('password/', views.password, name='password'),
+    path('emailsentconfirm/', views.emailsentconfirm, name='emailsentconfirm'),
+
+
     # path('about/', views.about, name='about'),
     # #path('voluntario/', views.voluntario, name='voluntario'),
     # path('collect/', views.collect, name='collect'),
@@ -44,12 +54,6 @@ urlpatterns = [
     # path('question/', views.question, name='question'),
     # path('sampleinnerpage/', views.sampleinnerpage, name='sampleinnerpage'),
     # path('services/', views.services, name='services'),
-    # path('edit/', views.edit, name='edit'),
-    # path('signin/', views.signin, name='signin'),
-    # path('password/', views.password, name='password'),
-    # path('emailsentconfirm/', views.emailsentconfirm, name='emailsentconfirm'),
-    # path('signup/', views.signup, name='signup'),
-    # path('signout/', views.signout, name='signout')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,5 +1,5 @@
 from django.db import models
-from donacion.base import NULLABLE
+from donacion.base.attrib import NULLABLE
 from donacion.base.base_model import BaseModel
 from donacion.models.producto import Producto
 from donacion.models.transaccion import Transaccion

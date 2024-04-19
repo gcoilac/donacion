@@ -1,0 +1,60 @@
+{% extends "layouts/base.html" %} {% load static %} {% block content %}
+<!-- ======= block nav ======= -->
+{% block nav %} {%endblock nav %}
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="/">Dashboard</a></li>
+          <li>Crear cuenta</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Get a Quote Section ======= -->
+  <section id="account" class="account">
+    <div class="container" data-aos="fade-up">
+      <div class="row g-0">
+        <div
+          class="col-lg-7 quote-bg"
+          style="background-image: url('{% static 'img/quotebg.jpg' %}')"
+        ></div>
+        <div class="col-lg-5 d-flex align-items-center p-3">
+          <div class="card card-body">
+            <form action="/perfil/" method="POST">
+              {% csrf_token %}
+              <div id="selectUser" class="input-group">
+                <select
+                  class="form-select"
+                  id="inputGroupSelect04"
+                  aria-label="Example select with button addon"
+                  size="1"
+                  name="status"
+                >
+                  <option selected>Solicitar el tipo de usuario...</option>
+                  <option value="1">Donante</option>
+                  <option value="2">Receptor</option>
+                  <option value="3">Voluntario</a></option>
+                </select>
+                <input
+                  class="btn btn-outline-secondary"
+                  type="submit"
+                  value="SELECCIONAR"
+                >
+                </input>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- End Quote Form -->
+      </div>
+    </div>
+  </section>
+  <!-- End Get a Quote Section -->
+</main>
+<!-- End #main -->{% endblock content %} {% block footer %}{% endblock footer %}

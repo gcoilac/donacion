@@ -1,8 +1,7 @@
 from django.db import models
-from django.contrib.contenttypes.fields import GenericRelation
 
 
-from donacion.base import DEFAULT_CHAR, NULLABLE
+from donacion.base.attrib import DEFAULT_CHAR, NULLABLE
 from donacion.base.base_model import BaseModel
 from donacion.base.types import TipoFuncion
 from .persona_natural import PersonaNatural
