@@ -37,7 +37,6 @@ class OrganizacionAdmin(admin.ModelAdmin):
         "responsable",
         "razon_social",
         "telefono",
-        "tipo_funcion",
     )
 
 

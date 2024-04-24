@@ -11,8 +11,8 @@ class Perfil(BaseModel):
     paterno = models.CharField(**DEFAULT_CHAR)
     materno = models.CharField(**DEFAULT_CHAR, **NULLABLE)
     telefono = models.CharField(**DEFAULT_CHAR, **NULLABLE)
-    status = models.IntegerField(**NULLABLE, choices=tipoUser)
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    #user = models.OneToOneField(User, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True

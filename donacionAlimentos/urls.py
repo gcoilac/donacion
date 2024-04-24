@@ -29,11 +29,15 @@ urlpatterns = [
 
     path('signup/', views.signup, name='signup'),
     path('signout/', views.signout, name='signout'),
-    path('perfil/', views.perfil, name='perfil'),
     path('edit/', views.edit, name='edit'),
     path('signin/', views.signin, name='signin'),
     path('password/', views.password, name='password'),
     path('emailsentconfirm/', views.emailsentconfirm, name='emailsentconfirm'),
+    path("perfil/", views.perfil, name="perfil"),
+    path("solicitud/", views.solicitud, name="solicitud"),
+    path("solicitudVoluntario/", views.solicitudVoluntario, name="solicitudVoluntario"),
+    path("solicitudPersona/", views.solicitudPersona, name="solicitudPersona"),
+    path("solicitudOrganizacion/", views.solicitudOrganizacion, name="solicitudOrganizacion")
 
 
     # path('about/', views.about, name='about'),

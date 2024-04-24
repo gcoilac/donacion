@@ -3,11 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from .base.perfil import Perfil
-# from .models import Producto, Proporciona, Donacion
+#from .models import Voluntario, PersonaNatural
 # from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-#from .forms import PerfilForm
+from .forms import PersonaNaturalForm, VoluntarioForm, OrganizacionForm
+#from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
@@ -26,7 +26,7 @@ def signup(request):
                     user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
                     user.save()
                     login(request, user)
-                    return redirect('index')
+                    return redirect('solicitud')
                 except IntegrityError:
                     return render(request, 'users/signup.html', {
                         'form': UserCreationForm,
@@ -60,24 +60,70 @@ def signout(request):
     logout(request)
     return redirect('index')
 
-@login_required
+
 def perfil(request):
+    return render(request, 'users/solicitude.html')
+
+def solicitud(request):
+    status = request.GET['status']
+    if(status == '1'):
+        render(request, 'users/voluntario.html')
+        return redirect('solicitudVoluntario')
+    elif(status == '2'):
+        render(request, 'users/persona.html')
+        return redirect('solicitudPersona')
+                
+@login_required
+def solicitudVoluntario(request):
     if request.method == 'GET':
-        return render(request, 'donateproduct.html')
+        return render(request, 'users/voluntario.html', {
+            'form': VoluntarioForm
+        })
     else:
         try:
-            form = request.POST
-            if form.is_valid:
-                print(form)
-                #newform = form.save(commit=False)
-                form.save()
-                return redirect('productos')
+            if request.method == 'POST':
+                form = VoluntarioForm(request.POST)
+                if form.is_valid:
+                    new_task = form.save(commit=False)
+                    new_task.user = request.user
+                    form.save()
+                    return redirect('index')
         except ValueError:
-            return render(request, 'donateproduct.html', {
+            return render(request, 'users/solicitude.html', {
+                'form': VoluntarioForm(),           
                 'error': 'please provide valude data'
             })
                 
-
+@login_required
+def solicitudPersona(request):
+    if request.method == 'GET':
+            return render(request, 'users/persona.html', {
+            'form': PersonaNaturalForm()
+        })
+    else:
+        try:
+            if request.method == 'POST':
+                form = PersonaNaturalForm(request.POST)
+                print(form)
+                if form.is_valid:
+                    new_task = form.save(commit=False)
+                    new_task.user = request.user
+                    #form.save()
+                    organizacion = request.POST['represento_org']
+                    if organizacion == True:
+                        render(request, 'users/organizacion.html')
+                        return redirect('solicitudOrganizacion')
+                    return redirect('index')
+        except ValueError:
+            return render(request, 'users/solicitude.html', {
+                'form': PersonaNaturalForm(),           
+                'error': 'please provide valude data'
+            })
+        
+def solicitudOrganizacion(request):
+    return render(request, "users/organizacion.html", {
+        'form': OrganizacionForm
+    })
 
 def edit(request):
     return render(request, 'users/edit.html')

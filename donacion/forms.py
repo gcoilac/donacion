@@ -1,6 +1,80 @@
 from django import forms
-#from .models import producto
-from .base import perfil
+from .models import Voluntario, PersonaNatural, Organizacion
+
+class PersonaNaturalForm(forms.ModelForm):
+    
+    class Meta:
+        model = PersonaNatural
+        fields = ["nombre", "paterno", "materno", "telefono", "tipo_funcion", "represento_org"]
+        widgets = {
+            "nombre":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escribe tu nombre",
+                }
+            ), 
+            "paterno":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escribe tu apellido paterno",
+                }
+            ), 
+            "materno":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escribe tu apellido materno",
+                }
+            ), 
+            "telefono":forms.NumberInput(attrs={'class': 'form-control'}),
+            "tipo_funcion":forms.Select(attrs={'class': 'form-control'}),
+            "Represento organizacion": forms.CheckboxInput(attrs={'class': 'form-check-input m-auto'})
+        }
+        #fields = '__all__'
+
+class VoluntarioForm(forms.ModelForm):
+    
+    class Meta:
+        model = Voluntario
+        fields = ["nombre", "paterno", "materno", "telefono", "tipo_voluntario"]
+        widgets = {
+            "nombre":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escriba tu nombre",
+                }
+            ), 
+            "paterno":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escribe tu apellido paterno",
+                }
+            ), 
+            "materno":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escribe tu apellido materno",
+                }
+            ),
+            "tipo_voluntario":forms.Select(attrs={'class': 'form-control'}), 
+            "telefono":forms.NumberInput(attrs={'class': 'form-control'})
+        }
+        #fields = '__all__'
+
+class OrganizacionForm(forms.ModelForm):
+    
+    class Meta:
+        model = Organizacion
+        fields = ["responsable", "razon_social", "telefono"]
+        widgets = {
+            "razon_social":forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Escriba un nombre de la organizacion",
+                }
+            ),
+            "telefono":forms.NumberInput(attrs={'class': 'form-control'})
+        }
+        #fields = '__all__'
 
 # class PerfilForm(forms.ModelForm):
     
