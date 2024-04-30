@@ -206,10 +206,10 @@ def donated_products(request):
 
 def cantidad_producto(request):
     if request.method == 'GET':
-        products = Producto.objects.all()
+        items = TransaccionItems.objects.all()
         form = DonationForm()
         return render(request, 'donation/donation.html', {
-            'products': products,
+            'items': items,
             'title': 'home',
             'form': DonationForm
         })
