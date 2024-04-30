@@ -43,6 +43,7 @@ class OrganizacionAdmin(admin.ModelAdmin):
 admin.site.register(Transaccion)
 admin.site.register(TransaccionItems)
 admin.site.register(Producto)
+#admin.site.register(Categoria)
 
 # admin.site.register(OrgBeneficiaria)
 # admin.site.register(Producto)

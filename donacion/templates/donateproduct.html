@@ -31,7 +31,11 @@
 <section class="container">
   <div class="row">
     <div class="col-md-6 offset-md-4 mt-1">
-      <form action="/product/donar/" method="post" class="card card-body">
+      <form
+        action="{% url 'subir_producto'%}"
+        method="post"
+        class="card card-body"
+      >
         {% csrf_token %} {{form.as_p}}
         <button class="btn btn-secondary">Guardar</button>
       </form>

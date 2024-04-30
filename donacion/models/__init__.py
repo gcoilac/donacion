@@ -6,3 +6,4 @@ from .transaccion import Transaccion
 from .categoria import Categoria
 from .producto import Producto
 from .transaccion_items import TransaccionItems
+from .categoria import Categoria

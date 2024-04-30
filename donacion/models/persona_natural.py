@@ -7,7 +7,7 @@ from donacion.base.types import TipoFuncion
 
 class PersonaNatural(Perfil):
     tipo_funcion = models.CharField(choices=TipoFuncion.choices, max_length=2)
-    represento_org = models.BooleanField(default=False)
+    represento_org = models.BooleanField()
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.paterno} {self.materno}"

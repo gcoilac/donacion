@@ -37,13 +37,13 @@
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Cantidad</th>
-        <th scope="col">Tipo</th>
+        <th scope="col">Categoria</th>
         <th scope="col">Accion</th>
       </tr>
     </thead>
     <tbody>
       <tr scope="row">
-        <form action="/donation/" method="POST">
+        <form action="{% url 'cantidad_producto'%}" method="POST">
           {% csrf_token %} {% for field in form %}
           <td>{{ field }}</td>
           {% endfor %}
@@ -53,12 +53,21 @@
         </form>
       </tr>
 
-      {% for donation in donations %}
+      {% for item in items %}
       <tr>
-        <td>{{ donation.nombre}}</td>
-        <td>{{ donation.cantidad}}</td>
-        <td>{{ donation.tipo}}</td>
+        <td>{{ item.nombre}}</td>
+        <td>{{ item.cantidad}}</td>
+        <td>{{ item.categoria}}</td>
         <td>
+          {% if item.categoria == 'P' %}
+          <a
+            href="{% url 'subir_producto'%}"
+            type="button"
+            name="completar"
+            class="btn btn-warning"
+            >Completar</a
+          >
+          {% else %} {% if item.categoria == 'Alimento' %}
           <a
             href="/product/donar"
             type="button"
@@ -66,6 +75,23 @@
             class="btn btn-warning"
             >Completar</a
           >
+          {% else %} {% if item.categoria == 'Bisuteria' %}
+          <a
+            href="/product/donar"
+            type="button"
+            name="completar"
+            class="btn btn-warning"
+            >Completar</a
+          >
+          {% else %} {% if item.categoria == 'Economica' %}
+          <a
+            href="{% url 'subir_producto'%}"
+            type="button"
+            name="completar"
+            class="btn btn-warning"
+            >Completar</a
+          >
+          {% endif %} {% endif %} {% endif %} {% endif %}
           <button name="borrar" class="btn btn-secondary">Borrar</button>
         </td>
       </tr>

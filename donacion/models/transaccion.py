@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
 
 from donacion.base.attrib import NULLABLE
 from donacion.base.base_model import BaseModel
