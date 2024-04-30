@@ -6,7 +6,7 @@ from django.db import IntegrityError
 from .models import Producto, TransaccionItems
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from .forms import PersonaNaturalForm, VoluntarioForm, OrganizacionForm, ProductForm, DonationForm
+from .forms import PersonaNaturalForm, VoluntarioForm, OrganizacionForm, ProductForm, DonationForm, TransaccionForm
 #from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
 
@@ -293,3 +293,8 @@ def borrar_producto(request, product_id):
         product.delete()
         return redirect('index')
 
+
+def transaccion(request):
+    return render(request, "transaccion.html", {
+        'form': TransaccionForm
+    })

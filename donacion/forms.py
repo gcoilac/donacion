@@ -1,5 +1,5 @@
 from django import forms
-from .models import Voluntario, PersonaNatural, Organizacion, Producto, TransaccionItems
+from .models import Voluntario, PersonaNatural, Organizacion, Producto, TransaccionItems, Transaccion
 
 class PersonaNaturalForm(forms.ModelForm):
     
@@ -121,6 +121,23 @@ class DonationForm(forms.ModelForm):
             "categoria":forms.Select(attrs={'class': 'form-control'}), 
         }
 
+class TransaccionForm(forms.ModelForm):
+    class Meta:
+        model = Transaccion
+        #fields = '__all__'
+        fields = ["fecha_registro", "fecha_envio", "fecha_recepcion", "estado"]
+        widgets = {
+            "fecha_registro": forms.DateInput(
+                attrs={"type": "date", "class": "form-control"}
+            ),
+            'fecha_envio': forms.DateInput(
+                attrs={"type": "date", "class": "form-control"}
+            ),
+            "fecha_recepcion": forms.DateInput(
+                attrs={"type": "date", "class": "form-control"}
+            ),
+            "estado":forms.Select(attrs={'class': 'form-control'}), 
+        }
 
 # class PerfilForm(forms.ModelForm):
     

@@ -58,6 +58,7 @@ urlpatterns = [
     path('products/<int:product_id>/', views.detalle_Producto, name='detalle_Producto'),
     path('products/<int:product_id>/complete', views.entrega_producto, name='entrega_producto'),
     path('products/<int:product_id>/delete', views.borrar_producto, name='borrar_producto'),
+    path('transaccion/', views.transaccion, name='transaccion'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

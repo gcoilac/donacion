@@ -67,7 +67,7 @@
             class="btn btn-warning"
             >Completar</a
           >
-          {% else %} {% if item.categoria == 'Alimento' %}
+          {% else %} {% if item.categoria == 'A' %}
           <a
             href="/product/donar"
             type="button"
@@ -75,7 +75,7 @@
             class="btn btn-warning"
             >Completar</a
           >
-          {% else %} {% if item.categoria == 'Bisuteria' %}
+          {% else %} {% if item.categoria == 'B' %}
           <a
             href="/product/donar"
             type="button"
@@ -83,7 +83,7 @@
             class="btn btn-warning"
             >Completar</a
           >
-          {% else %} {% if item.categoria == 'Economica' %}
+          {% else %} {% if item.categoria == 'E' %}
           <a
             href="{% url 'subir_producto'%}"
             type="button"
