@@ -38,88 +38,36 @@
         <span>Seleccionar voluntario</span>
         <h2>Seleccionar voluntario</h2>
       </div>
-
-      <div
-        class="row gy-4 pricing-item"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h3>VOLUNTARIO</h3>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h4>0<span> \ Beneficiados</span></h4>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <ul>
-            <h5>Organizacion beneficiaria o persona natural</h5>
-            <li><i class="bi bi-check"></i>direccion</li>
-            <li><i class="bi bi-check"></i> fecha de publicacion</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <div class="text-center">
-            <a href="delivery.html" class="buy-btn">Hacer donacion</a>
-          </div>
-        </div>
-      </div>
-      <!-- End Pricing Item -->
-
+      {% for voluntario in voluntarios %}
       <div
         class="row gy-4 pricing-item featured mt-4"
         data-aos="fade-up"
         data-aos-delay="200"
       >
         <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h3>VOLUNTARIO</h3>
+          <h3 class = "p-1">{{ voluntario.nombre }}</h3>
+          <h3 class = "p-1">{{ voluntario.paterno }}</h3>
+          <h3 class = "p-1">{{ voluntario.materno }}</h3>
         </div>
         <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h4>0<span> \ Beneficiados</span></h4>
+          <h4><span> {{ voluntario.telefono}}</span></h4>
         </div>
         <div class="col-lg-3 d-flex align-items-center justify-content-center">
           <ul>
-            <h5>Organizacion beneficiaria o persona natural</h5>
-            <li><i class="bi bi-check"></i> direccion</li>
-            <li>
-              <i class="bi bi-check"></i>
-              <strong>fecha de publicacion</strong>
-            </li>
+          <h5>{{ voluntario.tipo_voluntario }}</h5>
           </ul>
         </div>
         <div class="col-lg-3 d-flex align-items-center justify-content-center">
           <div class="text-center">
-            <a href="delivery.html" class="buy-btn">Hacer donancion</a>
-          </div>
-        </div>
-      </div>
-      <!-- End Pricing Item -->
-
-      <div
-        class="row gy-4 pricing-item mt-4"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <div class="col-lg-9 d-flex align-items-center justify-content-between">
-            <div>
-                <h3>VOLUNTARIO</h3>
-            <ul>
-              <h5>Organizacion beneficiaria o persona natural</h5>
-              <li><i class="bi bi-check"></i> direccion</li>
-              <li>
-                <i class="bi bi-check"></i>
-                <strong>fecha de publicacion</strong>
-              </li>
-            </ul>
+              <form action="/voluntario/" method = "POST">
+                {% csrf_token %}
+              <button type="submit" class="buy-btn">Elegir</button>
+            </form>
             </div>
-            <h4>0<span> \ Beneficiados</span></h4>
-        </div>
-        
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <div class="text-center">
-            <a href="delivery.html" class="buy-btn">Hacer donacion</a>
           </div>
-        </div>
       </div>
+      {% endfor %}
+      <!-- End Pricing Item -->
   <!-- End voluntarios Services Section -->
 </main>
 <!-- End #main -->

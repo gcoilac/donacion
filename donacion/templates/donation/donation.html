@@ -43,7 +43,7 @@
     </thead>
     <tbody>
       <tr scope="row">
-        <form action="{% url 'cantidad_producto'%}" method="POST">
+        <form action="{% url 'cantidad_producto' %}" method="POST">
           {% csrf_token %} {% for field in form %}
           <td>{{ field }}</td>
           {% endfor %}
@@ -61,7 +61,7 @@
         <td>
           {% if item.categoria == 'P' %}
           <a
-            href="{% url 'subir_producto'%}"
+            href="{% url 'subir_producto' %}"
             type="button"
             name="completar"
             class="btn btn-warning"

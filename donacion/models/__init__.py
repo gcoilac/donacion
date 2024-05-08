@@ -7,3 +7,6 @@ from .categoria import Categoria
 from .producto import Producto
 from .transaccion_items import TransaccionItems
 from .categoria import Categoria
+from .alimento import Alimento
+from .bisuteria import Bisuteria
+from .economica import Economica

@@ -40,7 +40,7 @@
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <a class="account btn btn-lg" href="/signup" type="button"
+            <a class="account btn btn-lg" href="{% url 'signup' %}" type="button"
               >Inscribirme <i class="bi bi-arrow-right"></i
             ></a>
           </div>
@@ -52,33 +52,7 @@
             <div class="stats-item text-center w-100 h-100">
               <span
                 data-purecounter-start="0"
-                data-purecounter-end="232"
-                data-purecounter-duration="1"
-                class="purecounter"
-              ></span>
-              <p>Voluntarios</p>
-            </div>
-          </div>
-          <!-- End Stats Item -->
-
-          <div class="col-lg-3 col-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span
-                data-purecounter-start="0"
-                data-purecounter-end="521"
-                data-purecounter-duration="1"
-                class="purecounter"
-              ></span>
-              <p>Entregas</p>
-            </div>
-          </div>
-          <!-- End Stats Item -->
-
-          <div class="col-lg-3 col-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span
-                data-purecounter-start="0"
-                data-purecounter-end="1453"
+                data-purecounter-end="{{count_Transaccion}}"
                 data-purecounter-duration="1"
                 class="purecounter"
               ></span>
@@ -91,7 +65,33 @@
             <div class="stats-item text-center w-100 h-100">
               <span
                 data-purecounter-start="0"
-                data-purecounter-end="32"
+                data-purecounter-end="{{count_PersonaNatural_receptora}}"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Receptores</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="{{count_voluntario}}"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Voluntarios</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="{{count_PersonaNatural_donante}}"
                 data-purecounter-duration="1"
                 class="purecounter"
               ></span>
@@ -125,8 +125,9 @@
         <div>
           <h4 class="title">Recogemos</h4>
           <p class="description">
-            Recogemos voluptatum deleniti atque corrupti quos dolores et quas
-            molestias excepturi sint occaecati cupiditate non provident
+            Recogida: Es el recorrido que realiza los voluntarios para obtener
+            la donacion en coordinacion con el donante ; dicho recorrido va a
+            estar monitoreado por los estados del proceso.
           </p>
           <a href="/collect" class="readmore stretched-link"
             ><span>Leer mas</span><i class="bi bi-arrow-right"></i
@@ -146,8 +147,8 @@
         <div>
           <h4 class="title">Trasladamos</h4>
           <p class="description">
-            Trasladamos minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat tarad limino ata
+            Traslado: Es el recorrido de la donacion solicitada por el receptor
+            que esta en manos de los voluntarios.
           </p>
           <a href="#" class="readmore stretched-link"
             ><span>Leer mas</span><i class="bi bi-arrow-right"></i
@@ -167,8 +168,10 @@
         <div>
           <h4 class="title">Entregamos</h4>
           <p class="description">
-            Entregamos duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur
+            Entrega: Es el resultado de todo el proceso previo, que se inicia en
+            el momento en el que el receptor realiza la peticion y dura durante
+            todo el proceso que permite que la donacion llegue del lugar de
+            recepcion hasta las manos del receptor en cuestión.
           </p>
           <a href="/delivery" class="readmore stretched-link"
             ><span>Leer mas</span><i class="bi bi-arrow-right"></i
@@ -179,5 +182,207 @@
     </div>
   </div>
 </section>
-<!-- End Featured Services Section -->
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    <div class="row gy-4">
+      <div
+        class="col-lg-6 position-relative align-self-start order-lg-last order-first"
+      >
+        <img src="{% static 'img/about.jpg' %}" class="img-fluid" alt="" />
+        <a
+          href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+          class="glightbox play-btn"
+        ></a>
+      </div>
+      <div class="col-lg-6 content order-last order-lg-first">
+        <h3>Sobre Nosotros</h3>
+        <p>
+          Damos nuestro granito de arena promoviendo la colaboracion
+          buscando personas voluntaria, donantes y beneficiarios.
+        </p>
+        <ul>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-f"></i>
+            <div>
+              <h5>ortalezas</h5>
+              <p>
+                Facilitar la coordinación entre donantes, voluntarios y
+                organizaciones beneficiarias.
+              </p>
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-o"></i>
+            <div>
+              <h5>portunidades</h5>
+              <p>
+                Colaboración con supermercados y empresas de alimentos
+                para aumentar las donaciones.
+              </p>
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-d"></i>
+            <div>
+              <h5>ebilidades</h5>
+              <p>
+                Dependencia de la participación activa de donantes y
+                voluntarios.
+              </p>
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-a"></i>
+            <div>
+              <h5>menazas</h5>
+              <p>
+                Cambios inesperados en la demanda de alimentos por parte
+                de las organizaciones beneficiarias
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Us Section -->
+
+<!-- ======= Mision Vision Section ======= -->
+<section class="breadcrumbs data-aos="fade-up"">
+  <div class="row d-flex flex-column align-items-center">
+    <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-header ">
+        <span>Mision</span>
+        <h2>Mision</h2>
+      </div>
+      <p>
+        Implementar un Sistema a corde a la exigencia del usuario en general donde pueda ser capaz de abastecer donaciones de alimentos,
+coordinar la recogida y entrega, y generar informes sobre la cantidad de alimentos donados.
+      </p>
+    </div>
+    <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-header">
+        <span>Vision</span>
+        <h2>Vision</h2>
+      </div>
+      <p>
+        Desarrollo de una plataforma tecnológica segura y fácil de usar para dar conciencia creciente sobre la importancia de las donaciones de alimentos y crear un impacto social positivo implementando soluciones innovadoras para mejorar la eficiencia de la distribución con el objetivo de apoyar a personas necesitadas.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End Mision Vision Section -->
+
+<!-- ======= Call To Action Section ======= -->
+<section id="call-to-action" class="call-to-action">
+  <div class="container" data-aos="zoom-out">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h3>Contactamos</h3>
+        <p> Conoce el servicio de atención a nuestros usuarios a través de un correo electronico, esperando brindarles apoyo sobre sus dudas sobre todo nuestro trabajo.</p>
+        <a class="cta-btn" href="{% url 'contact' %}">Call To Action</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Call To Action Section -->
+
+<!-- ======= Services Section ======= -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+      <div class="col-md-5">
+        <img
+          src="{% static 'img/features-1.jpg' %}"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="col-md-7">
+        <h3>Los voluntarios recogen los productos y alimentos.</h3>
+        <p class="fst-italic">
+          La labor voluntaria se centra en ayudar en el recojo y traslado de las donaciones que tienen asignadas (productos, alimentos, bisuteria, economicos, etc.), apoyando a las receptoras.
+        </p>
+        <ul>
+          <li>
+            <i class="bi bi-check"></i> Recojo.
+          </li>
+          <li>
+            <i class="bi bi-check"></i> Traslado.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ======= End Services Section ======= -->
+
+    <!-- Features Item -->
+    <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+      <div class="col-md-5 order-1 order-md-2">
+        <img
+          src="{% static 'img/features-2.jpg' %}"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="col-md-7 order-2 order-md-1">
+        <h3>
+          Los donadores dan informacion de ubicacion para recoger los
+          productos y alimentos.
+        </h3>
+        <p class="fst-italic">
+          Es el principal participante que genera esta actividad ya que sin el no se podria generar donacioines.
+        </p>
+        <p>
+          la labor de un donate ya sea una organizacion o persona natural, es como su nombre lo dice es dar una donacion y los datos que se le solicita para llegar a lugar y recepcionar la donacion.
+        </p>
+      </div>
+    </div>
+    <!-- Features Item -->
+
+    <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+      <div class="col-md-5">
+        <img
+          src="{% static 'img/features-3.jpg' %}"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="col-md-7">
+        <h3>Los voluntarios entregan los productos y alimentos.</h3>
+        <p>
+          La labor voluntaria se centra en ayudar en el coordinacion y entrega de las donaciones que tienen asignadas (productos, alimentos, bisuteria, economicos, etc.), apoyando a las receptoras.
+        </p>
+        <ul>
+          <li>
+            <i class="bi bi-check"></i> Entrega.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Features Item -->
+
+    <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+      <div class="col-md-5 order-1 order-md-2">
+        <img
+          src="{% static 'img/trucking-service.jpg' %}"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="col-md-7 order-2 order-md-1">
+        <h3>Los voluntarios transportan los productos y alimentos.</h3>
+        <p class="fst-italic">
+          la coordinacion en el trasldo es fundamental para una buena manipulacion de ls donaciones.
+        </p>
+        <p>
+          segun a lo que manipule el voluntario escogera el medio de transporte en el que sera transladado la donacion.
+        </p>
+      </div>
+    </div>
+    <!-- Features Item -->
+  </div>
+</section>
+<!-- End Features Section -->
 {% endblock content %}

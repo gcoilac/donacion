@@ -7,6 +7,9 @@ from donacion.models import (
     Transaccion,
     TransaccionItems,
     Producto,
+    Alimento,
+    Bisuteria,
+    Economica
 )
 
 
@@ -43,6 +46,12 @@ class OrganizacionAdmin(admin.ModelAdmin):
 admin.site.register(Transaccion)
 admin.site.register(TransaccionItems)
 admin.site.register(Producto)
+admin.site.register(Alimento)
+admin.site.register(Bisuteria)
+admin.site.register(Economica)
+
+
+# admin.site.register(Perfil)
 #admin.site.register(Categoria)
 
 # admin.site.register(OrgBeneficiaria)
@@ -56,7 +65,6 @@ admin.site.register(Producto)
 # admin.site.register(Realiza)
 # admin.site.register(Proporciona)
 # admin.site.register(PersonaDonante)
-# admin.site.register(Perfil)
 # admin.site.register(Participa)
 # admin.site.register(OrgDonante)
 # admin.site.register(Alerta)

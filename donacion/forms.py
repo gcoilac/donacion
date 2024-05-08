@@ -1,5 +1,11 @@
 from django import forms
-from .models import Voluntario, PersonaNatural, Organizacion, Producto, TransaccionItems, Transaccion
+from django.contrib.auth.models import User
+from .models import Voluntario, PersonaNatural, Organizacion, Producto, TransaccionItems, Transaccion, Alimento, Bisuteria, Economica
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["username", "email", "first_name", "last_name"]
 
 class PersonaNaturalForm(forms.ModelForm):
     
@@ -82,7 +88,7 @@ class OrganizacionForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ["marca", "peso", "caducidad", "descripcion", "image"]
+        fields = ["marca", "peso", "caducidad", "image"]
         widgets = {
             "marca": forms.TextInput(
                 attrs={
@@ -94,12 +100,65 @@ class ProductForm(forms.ModelForm):
             "caducidad": forms.DateInput(
                 attrs={"type": "date", "class": "form-control"}
             ),
-            "descripcion": forms.Textarea(
+            #'asignacion': forms.CheckboxInput(attrs={'class': 'form-check-input m-auto'})
+            #sender = forms.EmailField(help_text="A valid email address, please.")
+            #day = forms.DateField(initial=datetime.date.today)
+        }
+
+
+class AlimentoForm(forms.ModelForm):
+    class Meta:
+        model = Alimento
+        fields = ["duracion", "peso", "image"]
+        widgets = {
+            "duracion": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "escriba una descripcion",
+                    "placeholder": "escriba el nombre de la empresa del producto",
                 }
             ),
+            'peso': forms.NumberInput(attrs={'class': 'form-control'}),
+            #'asignacion': forms.CheckboxInput(attrs={'class': 'form-check-input m-auto'})
+            #sender = forms.EmailField(help_text="A valid email address, please.")
+            #day = forms.DateField(initial=datetime.date.today)
+        }
+
+
+class BisuteriaForm(forms.ModelForm):
+    class Meta:
+        model = Bisuteria
+        fields = ["articulo", "estado", "image"]
+        widgets = {
+            "articulo": forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "escriba el nombre de la empresa del producto",
+                }
+            ),
+            "estado": forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "escriba el nombre de la empresa del producto",
+                }
+            ),
+            #'asignacion': forms.CheckboxInput(attrs={'class': 'form-check-input m-auto'})
+            #sender = forms.EmailField(help_text="A valid email address, please.")
+            #day = forms.DateField(initial=datetime.date.today)
+        }
+
+
+class EconomicaForm(forms.ModelForm):
+    class Meta:
+        model = Economica
+        fields = ["monto", "moneda"]
+        widgets = {
+            "monto": forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "escriba el nombre de la empresa del producto",
+                }
+            ),
+            "moneda":forms.Select(attrs={'class': 'form-control'}), 
             #'asignacion': forms.CheckboxInput(attrs={'class': 'form-check-input m-auto'})
             #sender = forms.EmailField(help_text="A valid email address, please.")
             #day = forms.DateField(initial=datetime.date.today)
@@ -118,6 +177,12 @@ class DonationForm(forms.ModelForm):
                 }
             ),
             'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
+            "descripcion": forms.Textarea(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "escriba una descripcion",
+                }
+            ),
             "categoria":forms.Select(attrs={'class': 'form-control'}), 
         }
 

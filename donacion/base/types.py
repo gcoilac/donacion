@@ -10,10 +10,16 @@ class TipoFuncion(models.TextChoices):
     DONANTE = "D", "Donante"
     RECEPTOR = "R", "Receptor"
 
+class TipoMoneda(models.TextChoices):
+    BOLIVIANOS = "B", "Bs"
+    DOLARES = "D", "$"
+
 
 class tipoUser(models.TextChoices):
-    VOLUNTARIO = "V", "Voluntario"
-    DONANTE = "D", "Donante"
+    VOLUNTARIO_RESPONZABLE = "VR", "Voluntario Responzable"
+    VOLUNTARIO_COLABORADOR = "VC", "Voluntario Colaborador"
+    DONANTE = "DP", "Donante"
+    DONANTE_ORGANIZACION = "DO", "Donante Organizacion"
     RECEPTOR = "R", "Receptor"
 
 class TipoDonacion(models.TextChoices):

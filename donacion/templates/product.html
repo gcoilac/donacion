@@ -41,7 +41,7 @@
 
       <div class="row gy-4">
         {% for item in items %}
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card">
             <div class="card-img">
               <img
@@ -51,10 +51,15 @@
               />
             </div>
             <h3>
-              <a href="#" class="stretched-link">{{item.nombre}}</a>
+              <span>{{ item.cantidad }}/unidades de</span>
+              <a href="#" class="stretched-link">{{ item.nombre }}</a>
             </h3>
-            <p>{{item.cantidad}}</p>
-            <p>{{item.categoria}}</p>
+            <div class="d-flex justify-content-between">
+              <p>{{ item.product.marca }}</p>
+              <p>{{ item.product.peso }}<span>mg</span></p>
+            </div>
+            <p>{{ item.descripcion }}</p>
+            <p>{{ item.product.caducidad }}</p>
           </div>
         </div>
         {% endfor %}

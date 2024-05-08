@@ -40,7 +40,7 @@
       </div>
 
       <div class="row gy-4">
-        {% for product in products %}
+        {% for item in items %}
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
           <div class="card">
             <div class="card-img">
@@ -51,13 +51,15 @@
               />
             </div>
             <h3>
-              <a href="{% url 'editproduct' item.id %}" class="stretched-link"
-                >{{product.marca}}</a
+              <a
+                href="{% url 'subir_producto' item.id %}"
+                class="stretched-link"
+                >{{item.producto.marca}}</a
               >
             </h3>
-            <p>{{product.peso}}</p>
-            <p>{{product.caducidad}}</p>
-            <p>{{product.descripcion}}</p>
+            <p>{{item.peso}}</p>
+            <p>{{item.caducidad}}</p>
+            <p>{{item.descripcion}}</p>
           </div>
         </div>
         {% endfor %}

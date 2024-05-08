@@ -16,24 +16,27 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from donacion import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path('', views.index, name='index'),
 
+    path("admin/", admin.site.urls),
+
+    path('accounts/', include('django.contrib.auth.urls')),
 
     path('signup/', views.signup, name='signup'),
     path('signout/', views.signout, name='signout'),
-    path('edit/', views.edit, name='edit'),
-    path('signin/', views.signin, name='signin'),
-    path('password/', views.password, name='password'),
-    path('emailsentconfirm/', views.emailsentconfirm, name='emailsentconfirm'),
-    path("perfil/", views.perfil, name="perfil"),
+
+    path('mensaje/', views.mensaje, name='mensaje'),
+
+    path("perfil/<str:username>/", views.perfil, name="perfil"),
+    path("perfil/<int:user_id>/edit", views.edit_perfil, name="edit_perfil"),
+
+    path("tipo_usuario/", views.tipo_usuario, name="tipo_usuario"),
     path("solicitud/", views.solicitud, name="solicitud"),
     path("solicitudVoluntario/", views.solicitudVoluntario, name="solicitudVoluntario"),
     path("solicitudPersona/", views.solicitudPersona, name="solicitudPersona"),
@@ -50,17 +53,41 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('sampleinnerpage/', views.sampleinnerpage, name='sampleinnerpage'),
 
-    path('transaccion_items/', views.transaccion_items, name='transaccion_items'),
-    path('productos/', views.products, name='products'),
-    path('productos_donados/', views.donated_products, name='donated_products'),
-    path('productos/cantidad/', views.cantidad_producto, name='cantidad_producto'),
+
+    path('donaciones/', views.donaciones, name='donaciones'),
+    path('donaciones_donados/', views.cantidad_donaciones, name='donaciones_donados'),
+    path('donaciones/cantidad/', views.cantidad_donaciones, name='cantidad_donaciones'),
+
+
     path('productos/subir/', views.subir_producto, name='subir_producto'),
-    path('products/<int:product_id>/', views.detalle_Producto, name='detalle_Producto'),
+    path('products/<int:product_id>/', views.detalle_producto, name='detalle_Producto'),
     path('products/<int:product_id>/complete', views.entrega_producto, name='entrega_producto'),
     path('products/<int:product_id>/delete', views.borrar_producto, name='borrar_producto'),
+
+
+    path('alimentos/subir/', views.subir_alimento, name='subir_alimento'),
+    # path('alimentos/<int:product_id>/', views.detalle_alimento, name='detalle_Producto'),
+    # path('alimentos/<int:product_id>/complete', views.entrega_alimento, name='entrega_producto'),
+    # path('alimentos/<int:product_id>/delete', views.borrar_alimento, name='borrar_producto'),
+
+
+    path('bisuterias/subir/', views.subir_bisuteria, name='subir_bisuteria'),
+    # path('bisuterias/<int:product_id>/', views.detalle_bisuteria, name='detalle_Producto'),
+    # path('bisuterias/<int:product_id>/complete', views.entrega_producto, name='entrega_producto'),
+    # path('bisuterias/<int:product_id>/delete', views.borrar_bisuteria, name='borrar_producto'),
+
+
+    path('economica/subir/', views.subir_economica, name='subir_economica'),
+    # path('economica/<int:product_id>/', views.detalle_economica, name='detalle_Producto'),
+    # path('economica/<int:product_id>/complete', views.entrega_economica, name='entrega_producto'),
+    # path('economica/<int:product_id>/delete', views.borrar_economica, name='borrar_producto'),
+
+
     path('transaccion/', views.transaccion, name='transaccion'),
+    path('voluntario/', views.voluntario, name='voluntario'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
 if settings.DEBUG:
+    from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

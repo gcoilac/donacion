@@ -64,6 +64,7 @@
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
         <nav id="navbar" class="navbar">
           <ul>
             <li><a href="/" class="active">Dashboard</a></li>
@@ -77,28 +78,53 @@
               ></a>
               <ul>
                 <li><a href="/food">Alimentos</a></li>
-                <li><a href="/transaccion_items">Productos</a></li>
+                <li><a href="/productos">Productos</a></li>
                 <li><a href="/money">Economicas</a></li>
                 <li><a href="/money">Bisuteria</a></li>
               </ul>
             </li>
+
             <li>
-              <a href="/productos/cantidad">Donar producto</a>
+              <a href="/donaciones/cantidad">Donar producto</a>
             </li>
+            {% comment %}
             <li>
               <a href="/productos_donados">Productos Donados</a>
             </li>
             <li>
               <a href="/transaccion">Transaccion</a>
             </li>
+            {% endcomment %}
             <li>
-              <a class="account" href="/signout">Salir cuenta</a>
+              <a class="account" href="{% url 'signout' %}">Salir cuenta</a>
+            </li>
+            <li>
+              <a
+                class="buy-btn"
+                style="padding: 13px 16px"
+                href="{% url 'perfil' user.username %}"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-person-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                  <path
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"
+                  />
+                </svg>
+                <small class="p-2">{{ user.username }}</small>
+              </a>
             </li>
             {% else %}
             <li><a href="/about">Quienes somos</a></li>
             <li><a href="/services">Nuestro trabajo</a></li>
             <li>
-              <a class="account" href="/signin">Acceder cuenta</a>
+              <a class="account" href="{% url 'login' %}">Acceder cuenta</a>
             </li>
             {% endif %}
           </ul>
@@ -119,9 +145,10 @@
               <span>Donaciones</span>
             </a>
             <p>
-              Cras fermentum odio eu feugiat lide par naso tierra. Justo eget
-              nada terra videa magna derita valies darta donna mare fermentum
-              iaculis eu non diam phasellus.
+              Rastreamos donaciones de principalmente de productos, alimentos,
+              bisuteria y economicos como tambien coordinamos la recogida y
+              entrega y generamos un envio seguro dando informacion permanente
+              de las donaciones.
             </p>
             <div class="social-links d-flex mt-4">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
